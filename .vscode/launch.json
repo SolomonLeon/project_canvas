@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "command": "python -m http.server 8000",
+            "cwd": "${workspaceFolder}/src",
+            "name": "Run python server",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}
