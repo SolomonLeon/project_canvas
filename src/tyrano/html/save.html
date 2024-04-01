@@ -1,0 +1,31 @@
+<div class="saveload">
+  <!-- title -->
+  <img class="title" src="data/image/saveload/title_save.png">
+
+  <div class="close-wrapper">
+    <div class="menu_close"></div>
+  </div>
+
+  <div class="scroll-area">
+    <ul class="file-list">
+      {{for array_save}}
+      <li class="file save_display_area" data-num="{{>num}}">
+        <div class="file-thumb save_list_item_thumb">
+          {{if img_data != ""}}
+          <img src="{{>img_data}}" />
+          {{/if}}
+        </div>
+        {{if save_date != ""}}
+        <span class="file-date save_list_item_date">{{*: dateFormatter(data.save_date); }}</span>
+        {{else}}
+        <span class="file-date save_list_item_date">----<span class="date-slash">/</span>--<span
+            class="date-slash">/</span>--<span class="date-slash">/</span>--:--</span>
+        {{/if}}
+        <span class="file-title save_list_item_text">{{>title}}</span>
+        <span class="file-num">{{*: (data.num + 1).toString().padStart(2, '0'); }}</span>
+        <span class="file-num-bg">{{*: (data.num + 1).toString().padStart(2, '0'); }}</span>
+      </li>
+      {{/for}}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.close-wrapper {
+  background: url('image/back_base.png');
+  width: 251px;
+  height: 157px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.menu_close {
+  background: url('image/back.png');
+  width: 231px;
+  height: 112px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.menu_close:hover {
+  background: url('image/back_hover.png');
+}
+
+.scroll-area::-webkit-scrollbar {
+  background-color: none;
+  background-image: url('image/scrollbar.png');
+  width: 28px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: url('image/scrollbar_thumb.png') center no-repeat;
+}

@@ -1,0 +1,97 @@
+.saveload {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('bgimage/saveload.png');
+}
+
+.saveload .scroll-area {
+  position: absolute;
+  width: 1470px;
+  height: 880px;
+  top: 144px;
+  left: 230px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.file {
+  display: block;
+  background: url('image/saveload/file.png');
+  width: 1457px;
+  height: 315px;
+  position: relative;
+  cursor: pointer;
+}
+.file:hover {
+  background: url('image/saveload/file_hover.png');
+}
+.file-thumb {
+  background: url('image/saveload/no_data.png');
+  width: 342px;
+  height: 202px;
+  position: absolute;
+  top: 65px;
+  left: 40px;
+  padding: 15px 18px 21px;
+  box-sizing: border-box;
+}
+.file-thumb > img {
+  width: 306px;
+  height: 166px;
+}
+.file-date {
+  font-family: Inter, sans-serif;
+  font-variation-settings: 'wght' 500, 'slnt' 0;
+  font-weight: 500;
+  position: absolute;
+  top: 68px;
+  left: 400px;
+  letter-spacing: 2px;
+  transform: scale(1, 0.9);
+  font-size: 23px;
+}
+.date-slash {
+  color: #9daab7;
+  margin: 0 7px;
+}
+.file-title {
+  font-family: NotoSansJP, sans-serif;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+  position: absolute;
+  top: 120px;
+  left: 400px;
+  width: 965px;
+  text-align: left;
+  font-size: 23px;
+  line-height: 1.8;
+}
+.file-num {
+  font-family: Inter, sans-serif;
+  font-variation-settings: 'wght' 400, 'slnt' 0;
+  font-weight: 400;
+  font-size: 31px;
+  transform: scale(1, 0.9);
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 12px;
+  left: 85px;
+}
+.file-num-bg {
+  font-family: Inter, sans-serif;
+  font-variation-settings: 'wght' 200, 'slnt' 0;
+  font-weight: 200;
+  font-size: 200px;
+  transform: scale(1, 0.9);
+  letter-spacing: -15px;
+  color: #f4f8f9;
+  mix-blend-mode: multiply;
+  text-align: right;
+  position: absolute;
+  top: 30px;
+  right: 100px;
+}

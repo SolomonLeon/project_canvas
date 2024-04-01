@@ -1,0 +1,54 @@
+.ps {
+    opacity: 1 !important;
+    overflow: hidden !important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+    height: 15px;
+}
+
+.ps__rail-y {
+    display: none;
+    width: 15px;
+    right: 0;
+    position: absolute;
+    background-color: #333;
+    opacity: 1;
+}
+
+.ps--active-y > .ps__rail-y {
+    display: block;
+    background-color: #333;
+}
+
+.ps__rail-y:hover,
+.ps__rail-y:focus {
+    background-color: #555;
+}
+
+.ps__thumb-y {
+    border-radius: 11px;
+    background-color: #999;
+    right: 3px;
+    position: absolute;
+    width: 9px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y {
+    background-color: #CCC;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}

@@ -1,0 +1,151 @@
+.message_inner {
+  text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff,
+    0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+}
+
+.ui-text,
+.remodal-content > .remodal_title {
+  text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff,
+    0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  font-family: Corporate, sans-serif;
+}
+
+.training-bg {
+  filter: blur(4px);
+}
+.training-button-disabled {
+  opacity: 0.2;
+}
+#training-video {
+  display: block;
+  position: absolute;
+  top: 215px;
+  left: 372px;
+  clip-path: url(#training-video-path);
+}
+
+.chara-name {
+  filter: drop-shadow(1px 1px 0px #00466c) drop-shadow(-1px 1px 0px #00466c)
+    drop-shadow(1px -1px 0px #00466c) drop-shadow(-1px -1px 0px #00466c)
+    drop-shadow(0 2px 0 rgba(89, 125, 144, 0.7));
+  background-color: #fff;
+  background-image: linear-gradient(
+    0deg,
+    #bbe5ff 10%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.ending-sd-cg {
+  border: 6px solid rgba(60, 96, 110, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 0 4px #fff;
+}
+
+.backlog_chara,
+.backlog_text {
+  text-shadow: 0 0 10px #000f2e, 0 0 10px #000f2e;
+}
+/* .backlog_line {
+  display: none;
+}
+.backlog_line ~ .backlog_line {
+  display: block;
+} */
+#backlog-scroll-up {
+  position: absolute;
+  width: 1450px;
+  height: 80px;
+  top: 107px;
+  right: 214px;
+  cursor: pointer;
+}
+#backlog-scroll-down {
+  position: absolute;
+  width: 1450px;
+  height: 80px;
+  top: 943px;
+  right: 214px;
+  cursor: pointer;
+}
+#backlog-scroll-up:focus,
+#backlog-scroll-down:focus {
+  outline: none;
+}
+
+body > .remodal-overlay {
+  background-color: transparent;
+  background-image: url('bgimage/dialog_bg_blue.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body > .remodal-overlay.remodal-overlay-red {
+  background-image: url('bgimage/dialog_bg_red.png');
+}
+.remodal-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.remodal-wrapper > .remodal-base > .remodal-image {
+  background-image: url('bgimage/dialog_frame.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.remodal-wrapper > .remodal {
+  background: none !important;
+  max-width: none !important;
+  /* width: given by js */
+  height: 0;
+  padding: 0;
+  margin: 0;
+  padding-top: calc(100% * 9 / 16);
+  position: relative;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+.remodal-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 22% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+#remodal-button-wrapper > #remodal-cancel,
+#remodal-button-wrapper > #remodal-confirm {
+  width: calc(100% / 661 * 325);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+#remodal-button-wrapper {
+  display: flex;
+  width: calc(100% / 1920 * 661);
+  height: calc(100% / 235.218 * 70);
+  justify-content: space-between;
+}
+#remodal-cancel {
+  background-image: url('image/yesno/no.png');
+}
+#remodal-confirm {
+  background-image: url('image/yesno/yes.png');
+}
