@@ -1190,8 +1190,15 @@ tyrano.plugin.kag = {
     loadScenario: function (file_name, call_back) {
         var that = this;
         this.stronglyStop();
+
+
         this.stat.current_scenario = file_name;
         var file_url = "";
+
+        file_name = file_name.startsWith("scene_")
+        ? `${file_name.split(".")[0]}.${window.languagePreference}.${file_name.split(".")[1]}`
+        : file_name;
+
         file_url = $.isHTTP(file_name)
             ? file_name
             : "./data/scenario/" + file_name;
@@ -1719,14 +1726,12 @@ tyrano.plugin.kag = {
             this.__j_hiden_area = j_hidden_area;
             return j_hidden_area;
         }
-        j_hidden_area = $('<div id="hidden_area" />')
-            .appendTo("body")
-            .css({
-                position: "fixed",
-                left: "200%",
-                top: "200%",
-                opacity: "0",
-            });
+        j_hidden_area = $('<div id="hidden_area" />').appendTo("body").css({
+            position: "fixed",
+            left: "200%",
+            top: "200%",
+            opacity: "0",
+        });
         this.__j_hiden_area = j_hidden_area;
         return j_hidden_area;
     },

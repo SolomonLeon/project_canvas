@@ -74,6 +74,22 @@
   <script src="./tyrano/libs/anime.min.js"></script>
   <script src="./tyrano/libs/lz-string.min.js"></script>
 
+  <script>
+    (function(){
+      window.languagePreferenceList = ["ja","zh-cn"]
+      
+      var params = new URLSearchParams(window.location.search);
+      if(window.languagePreferenceList.includes(params.get("lang").toLowerCase())){
+        window.languagePreference = params.get("lang");
+      }else if(window.languagePreferenceList.includes(params.get("language").toLowerCase())){
+        window.languagePreference = params.get("language");
+      }else{
+        window.languagePreference = 'ja';
+      }
+      console.log("languagePreference", window.languagePreference);
+    })()
+  </script>
+
 </head>
 
 <body onselectstart="return false" onContextmenu="return false" ontouchmove="event.preventDefault()">

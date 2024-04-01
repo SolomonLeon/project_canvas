@@ -2120,6 +2120,10 @@
             folder = `data/${folder}`;
         }
 
+        if(storage.startsWith("scene_")){
+            storage = `${storage.split(".")[0]}.${window.languagePreference}.${storage.split(".")[1]}`
+        }
+
         // / フォルダパス / ファイル名
         let full_path = `/${folder}/${storage}`;
 
