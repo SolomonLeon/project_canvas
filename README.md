@@ -3,6 +3,8 @@
 <p align="center"><a href="https://solomonleon.github.io/project_canvas/src/index.html?lang=ja">Enter Game (ja)</a></p>
 <p align="center"><a href="https://solomonleon.github.io/project_canvas/src/index.html?lang=zh-cn">Enter Game (zh-cn)</a></p>
 
+[Github Pages](https://solomonleon.github.io/project_canvas/)
+
 ## Todo List
 
 -   [x] Multiple language support
