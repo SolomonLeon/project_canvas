@@ -1,7 +1,7 @@
 window.tyrano_lang.word = {
   ...window.tyrano_lang.word,
-  go_title: '本当にタイトルに戻りますか？',
-  exit_game: '本当に終了しますか？',
+  go_title: '确认返回标题？',
+  exit_game: '确认关闭游戏？',
 };
 
 const resizeRemodal = () => {
