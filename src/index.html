@@ -12,6 +12,28 @@
   <link href="./tyrano/tyrano.css" rel="stylesheet" />
   <link href="./tyrano/libs/jquery-ui/jquery-ui.css" rel="stylesheet" />
 
+  <!-- language preference -->
+  <script>
+    (function(){
+      window.languagePreferenceList = ["ja","zh-cn"]
+      
+      var params = new URLSearchParams(window.location.search);
+      try {
+        if(window.languagePreferenceList.includes(params.get("lang").toLowerCase())){
+          window.languagePreference = params.get("lang");
+        }else if(window.languagePreferenceList.includes(params.get("language").toLowerCase())){
+          window.languagePreference = params.get("language");
+        }else{
+          window.languagePreference = 'ja';
+        }
+      } catch (error) {
+        window.languagePreference = 'ja';
+      }
+
+      console.log("languagePreference", window.languagePreference);
+    })()
+  </script>
+
   <!-- jQuery -->
   <script src="./tyrano/libs/jquery-3.6.0.min.js"></script>
   <script>
@@ -44,10 +66,10 @@
 
   <!-- tyrano -->
   <script src="./tyrano/lang.js"></script>
-  <script src="./tyrano/libs.js"></script>
+  <script src="./tyrano/libs.js?_t=2"></script>
   <script src="./tyrano/tyrano.js"></script>
   <script src="./tyrano/tyrano.base.js"></script>
-  <script src="./tyrano/plugins/kag/kag.js"></script>
+  <script src="./tyrano/plugins/kag/kag.js?_t=2"></script>
   <script src="./tyrano/plugins/kag/kag.event.js"></script>
   <script src="./tyrano/plugins/kag/kag.key_mouse.js"></script>
   <script src="./tyrano/plugins/kag/kag.layer.js"></script>
@@ -73,28 +95,6 @@
   <script src="./tyrano/libs/jsQR.js"></script>
   <script src="./tyrano/libs/anime.min.js"></script>
   <script src="./tyrano/libs/lz-string.min.js"></script>
-
-  <script>
-    (function(){
-      window.languagePreferenceList = ["ja","zh-cn"]
-      
-      var params = new URLSearchParams(window.location.search);
-      try {
-        if(window.languagePreferenceList.includes(params.get("lang").toLowerCase())){
-          window.languagePreference = params.get("lang");
-        }else if(window.languagePreferenceList.includes(params.get("language").toLowerCase())){
-          window.languagePreference = params.get("language");
-        }else{
-          window.languagePreference = 'ja';
-        }
-      } catch (error) {
-        window.languagePreference = 'ja';
-      }
-
-      console.log("languagePreference", window.languagePreference);
-    })()
-  </script>
-
 </head>
 
 <body onselectstart="return false" onContextmenu="return false" ontouchmove="event.preventDefault()">
