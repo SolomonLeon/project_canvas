@@ -79,13 +79,18 @@
       window.languagePreferenceList = ["ja","zh-cn"]
       
       var params = new URLSearchParams(window.location.search);
-      if(window.languagePreferenceList.includes(params.get("lang").toLowerCase())){
-        window.languagePreference = params.get("lang");
-      }else if(window.languagePreferenceList.includes(params.get("language").toLowerCase())){
-        window.languagePreference = params.get("language");
-      }else{
+      try {
+        if(window.languagePreferenceList.includes(params.get("lang").toLowerCase())){
+          window.languagePreference = params.get("lang");
+        }else if(window.languagePreferenceList.includes(params.get("language").toLowerCase())){
+          window.languagePreference = params.get("language");
+        }else{
+          window.languagePreference = 'ja';
+        }
+      } catch (error) {
         window.languagePreference = 'ja';
       }
+
       console.log("languagePreference", window.languagePreference);
     })()
   </script>
