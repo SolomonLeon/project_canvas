@@ -188,15 +188,15 @@
                     <a
                         class="btn"
                         style="flex: 1"
-                        href="https://solomonleon.github.io/project_canvas/src/index.html?lang=ja"
+                        onclick="
+                            if(confirm('Click OK to enter the game.\n\nPlease click on the KAMITSUBAKI icon after it appears.')){window.location.href='https:\/\/solomonleon.github.io\/project_canvas\/src\/index.html?lang=ja'}""
                         >Enter Web Game (ja)</a
                     >
                     <a
                         class="btn"
                         style="flex: 1"
-                        href="#https://solomonleon.github.io/project_canvas/src/index.html?lang=zh-cn"
                         onclick="
-                            alert('Coming soon!')"
+                            if(confirm('正在汉化中，是否访问？')){if(confirm('当神椿图标出现后，请点击神椿图标\n点击确认开始游戏')){window.location.href='https:\/\/solomonleon.github.io\/project_canvas\/src\/index.html?lang=zh-cn'}}"
                         >进入网页游戏 (zh-cn)</a
                     >
                 </div>
@@ -219,9 +219,8 @@
 
                     <ul>
                         <li>
-                            The game is now available in both
-                            <i>Japanese</i> and
-                            <i>Chinese Simplified (working on it)</i>.
+                            The game is now support i18n (Now available in both
+                            <i>Japanese</i> and <i>Simplified Chinese</i>).
                         </li>
                         <li>The game is now available in safari browser.</li>
                         <li>The game is now optimized for mobile devices.</li>
