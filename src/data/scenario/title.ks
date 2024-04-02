@@ -7,7 +7,7 @@
 
 [bg storage="title.png" time=100]
 [wait time=200]
-[playbgm storage="BGM04_lesson.wav" volume="10"]
+[playbgm storage="BGM04_lesson.mp3" volume="10"]
 [playse buf="3" storage="title.wav"]
 
 

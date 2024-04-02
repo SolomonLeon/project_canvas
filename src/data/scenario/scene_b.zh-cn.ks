@@ -10,7 +10,7 @@
 [bg storage="office_inside.png" time=0]
 [mask_off]
 
-[playbgm storage="BGM02_normal2.wav" volume="10"]
+[playbgm storage="BGM02_normal2.mp3" volume="10"]
 
 [show_msgwindow]
 *b_1
@@ -110,7 +110,7 @@
 *b_2
 ;背景：ボーカルスタジオ
 [bg storage="studio_vocal.png"]
-[playbgm storage="BGM01_normal1.wav" volume="10"]
+[playbgm storage="BGM01_normal1.mp3" volume="10"]
 ;立ち：情緒（通常）
 ;立ち：社長
 [show_jyocho face=tnormal left=650]

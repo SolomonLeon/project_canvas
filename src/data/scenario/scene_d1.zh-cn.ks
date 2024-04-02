@@ -38,7 +38,7 @@
 [hide_msgwindow]
 [bg storage=black.png]
 [bg storage=studio_dance.png]
-[playbgm storage="BGM01_normal1.wav" volume="10"]
+[playbgm storage="BGM01_normal1.mp3" volume="10"]
 ;立ち：歌方咲
 ;立ち：レイナ
 [show_saki left=150]

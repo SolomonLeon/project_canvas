@@ -124,7 +124,7 @@ tf.params = ['dance', 'vocal', 'visual', 'perf'];
 ;★★★　⓪グッドエンド　★★★
 ;BGM：ED音楽
 *e1_3
-[playbgm storage="BGM03_ed.wav" volume="10"]
+[playbgm storage="BGM03_ed.mp3" volume="10"]
 ;イベントCG：02　1stライブ（グッド）
 ;!! WIP !!
 [bg storage=CG2_normal.png]

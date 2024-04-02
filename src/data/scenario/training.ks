@@ -3,7 +3,7 @@
 ;   a, b, c, d (直前の novel) をあらかじめ指定してから jump すること
 
 [stop_keyconfig]
-[playbgm storage="BGM04_lesson.wav" volume="20"]
+[playbgm storage="BGM04_lesson.mp3" volume="20"]
 [iscript]
   tf.trainingCount = 0;
   tf.selected = undefined;

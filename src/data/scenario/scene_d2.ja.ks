@@ -12,7 +12,7 @@
 ;情緒視点ですが、情緒の立ち絵を表示していても違和感はないと思います
 
 [bg storage=park.bmp]
-[playbgm storage="BGM02_normal2.wav" volume="10"]
+[playbgm storage="BGM02_normal2.mp3" volume="10"]
 [show_jyocho face=cnormal]
 [show_msgwindow]
 
@@ -156,7 +156,7 @@
 [show_jyocho face=cnormal left=-200]
 [anim name=jyocho left=+=550]
 [wait time=2000]
-[playbgm storage="BGM02_normal2.wav" volume="10"]
+[playbgm storage="BGM02_normal2.mp3" volume="10"]
 [show_msgwindow]
 
 #jyocho

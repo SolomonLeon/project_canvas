@@ -83,7 +83,7 @@
 [bg storage="office_inside.png" time=2000]
 
 ;ＢＧＭ：日常
-[playbgm storage="BGM02_normal2.wav" volume="10"]
+[playbgm storage="BGM02_normal2.mp3" volume="10"]
 [show_msgwindow]
 
 #
@@ -173,7 +173,7 @@
 [bg storage="office_inside.png"]
 [show_msgwindow]
 [wait time=1000]
-[playbgm storage="BGM01_normal1.wav" volume="10"]
+[playbgm storage="BGM01_normal1.mp3" volume="10"]
 
 [show_jyocho face=cconfused]
 

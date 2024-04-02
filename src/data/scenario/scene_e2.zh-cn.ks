@@ -26,7 +26,7 @@
 
 ;イベントCG：SD01 ダンサーエンド
 
-[playbgm storage="BGM01_normal1.wav" volume=10]
+[playbgm storage="BGM01_normal1.mp3" volume=10]
 [bg storage="studio_dance.png"]
 [image storage="sd_dancer.png" name="ending-sd-cg" layer="0" width="800" time="1000" x=560 y=20]
 
@@ -88,7 +88,7 @@
 
 ;イベントCG：SD02 作曲家エンド
 
-[playbgm storage="BGM01_normal1.wav" volume=10]
+[playbgm storage="BGM01_normal1.mp3" volume=10]
 [bg storage="studio_vocal.png"]
 [image storage="sd_perf.png" name="ending-sd-cg" layer="0" width="800" time="1000" x=560 y=20]
 
@@ -149,7 +149,7 @@
 
 ;イベントCG：SD03 デザイナーエンド
 
-[playbgm storage="BGM01_normal1.wav" volume=10]
+[playbgm storage="BGM01_normal1.mp3" volume=10]
 [bg storage="office_inside.png"]
 [image storage="sd_designer.png" name="ending-sd-cg" layer="0" width="800" time="1000" x=560 y=20]
 
@@ -212,7 +212,7 @@
 
 ;イベントCG：SD04 留学（ボーカル）エンド
 
-[playbgm storage="BGM01_normal1.wav" volume=10]
+[playbgm storage="BGM01_normal1.mp3" volume=10]
 [bg storage="office_ex.bmp"]
 [image storage="sd_vocal.png" name="ending-sd-cg" layer="0" width="800" time="1000" x=560 y=20]
 

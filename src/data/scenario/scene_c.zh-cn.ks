@@ -15,7 +15,7 @@
 
 [bg storage=studio_dance.png time=0]
 [mask_off]
-[playbgm storage="BGM01_normal1.wav" volume="10"]
+[playbgm storage="BGM01_normal1.mp3" volume="10"]
 [show_jyocho face=tserious left=700]
 [show_reina face=angry left=-200]
 [show_msgwindow]
@@ -147,7 +147,7 @@
 [chara_hide name=ruri]
 [show_jyocho face=cserious]
 [mask_off]
-[playbgm storage="BGM02_normal2.wav" volume=10]
+[playbgm storage="BGM02_normal2.mp3" volume=10]
 [show_msgwindow]
 ;背景：事務所内装
 
