@@ -13,7 +13,6 @@
     };
 
     $.isHTTP = function (str) {
-
         if ($.isBase64(str)) {
             return true;
         }
@@ -78,7 +77,10 @@
             // all except Explorer
             width = self.innerWidth;
             height = self.innerHeight;
-        } else if (document.documentElement && document.documentElement.clientHeight) {
+        } else if (
+            document.documentElement &&
+            document.documentElement.clientHeight
+        ) {
             // Explorer 6 Strict Mode
             width = document.documentElement.clientWidth;
             height = document.documentElement.clientHeight;
@@ -145,10 +147,14 @@
                 return date.getYear() + "";
             },
             t: function (date) {
-                return date.getDate() <= 3 ? ["st", "nd", "rd"][date.getDate() - 1] : "th";
+                return date.getDate() <= 3
+                    ? ["st", "nd", "rd"][date.getDate() - 1]
+                    : "th";
             },
             w: function (date) {
-                return ["Sun", "$on", "Tue", "Wed", "Thu", "Fri", "Sat"][date.getDay()];
+                return ["Sun", "$on", "Tue", "Wed", "Thu", "Fri", "Sat"][
+                    date.getDay()
+                ];
             },
             MMMM: function (date) {
                 return [
@@ -167,7 +173,20 @@
                 ][date.getMonth()];
             },
             MMM: function (date) {
-                return ["Jan", "Feb", "$ar", "Apr", "$ay", "Jun", "Jly", "Aug", "Spt", "Oct", "Nov", "Dec"][date.getMonth()];
+                return [
+                    "Jan",
+                    "Feb",
+                    "$ar",
+                    "Apr",
+                    "$ay",
+                    "Jun",
+                    "Jly",
+                    "Aug",
+                    "Spt",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                ][date.getMonth()];
             },
             MM: function (date) {
                 return ("0" + (date.getMonth() + 1)).slice(-2);
@@ -179,9 +198,30 @@
                 return "M";
             },
         },
-        _priority: ["hh", "h", "mm", "m", "ss", "dd", "d", "s", "yyyy", "yy", "t", "w", "MMMM", "MMM", "MM", "M", "$"],
+        _priority: [
+            "hh",
+            "h",
+            "mm",
+            "m",
+            "ss",
+            "dd",
+            "d",
+            "s",
+            "yyyy",
+            "yy",
+            "t",
+            "w",
+            "MMMM",
+            "MMM",
+            "MM",
+            "M",
+            "$",
+        ],
         format: function (date, format) {
-            return this._priority.reduce((res, fmt) => res.replace(fmt, this._fmt[fmt](date)), format);
+            return this._priority.reduce(
+                (res, fmt) => res.replace(fmt, this._fmt[fmt](date)),
+                format
+            );
         },
     };
 
@@ -213,8 +253,8 @@
                 // of the computed font-size, so in px
                 getComputedStyle(
                     // for the root <html> element
-                    document.documentElement,
-                ).fontSize,
+                    document.documentElement
+                ).fontSize
             );
         }
 
@@ -303,7 +343,7 @@
     $.tag = function (tag_name, pm) {
         var pm_str = "";
         for (key in pm) {
-            pm_str += " " + key + "=\"" + pm[key] + "\" ";
+            pm_str += " " + key + '="' + pm[key] + '" ';
         }
         return "[" + tag_name + " " + pm_str + " ]";
     };
@@ -357,7 +397,7 @@
     };
 
     //パスにfgimage bgimage image が含まれていた場合、それを適応する
-    $.convertStorage = function (path) { };
+    $.convertStorage = function (path) {};
 
     $.convertColor = function (val) {
         if (val.indexOf("0x") != -1) {
@@ -441,7 +481,6 @@
                     reject();
                 },
             });
-
         });
     };
 
@@ -480,7 +519,10 @@
             return "iphone";
         } else if (ua.indexOf("Android") > -1) {
             return "android";
-        } else if (ua.indexOf("Chrome") > -1 && navigator.platform.indexOf("Linux") > -1) {
+        } else if (
+            ua.indexOf("Chrome") > -1 &&
+            navigator.platform.indexOf("Linux") > -1
+        ) {
             return "android";
         } else {
             return "pc";
@@ -501,8 +543,14 @@
         if (string_defined) {
             if (replace_map) {
                 for (const replace_key in replace_map) {
-                    const pattern = new RegExp(`\\{\\s*${replace_key}\\s*\\}`, "g");
-                    string_defined = string_defined.replace(pattern, replace_map[replace_key]);
+                    const pattern = new RegExp(
+                        `\\{\\s*${replace_key}\\s*\\}`,
+                        "g"
+                    );
+                    string_defined = string_defined.replace(
+                        pattern,
+                        replace_map[replace_key]
+                    );
                 }
             }
             return string_defined;
@@ -523,7 +571,10 @@
     $.getBrowser = function () {
         var userAgent = window.navigator.userAgent.toLowerCase();
 
-        if (userAgent.indexOf("msie") >= 0 || userAgent.indexOf("trident") >= 0) {
+        if (
+            userAgent.indexOf("msie") >= 0 ||
+            userAgent.indexOf("trident") >= 0
+        ) {
             return "msie";
         } else if (userAgent.indexOf("edge") > -1) {
             return "edge";
@@ -549,13 +600,16 @@
         }
 
         // Node.js で動作しているか
-        var isNode = typeof process !== "undefined" && typeof require !== "undefined";
+        var isNode =
+            typeof process !== "undefined" && typeof require !== "undefined";
         // ブラウザ上(非Node.js)で動作しているか
         var isBrowser = !isNode;
         // node-webkitで動作しているか
         var isNodeWebkit;
         try {
-            isNodeWebkit = isNode ? typeof require("nw.gui") !== "undefined" : false;
+            isNodeWebkit = isNode
+                ? typeof require("nw.gui") !== "undefined"
+                : false;
         } catch (e) {
             isNodeWebkit = false;
         }
@@ -709,7 +763,8 @@
         if (mode == "hide") {
             j_obj.show();
             method = $.replaceAll(method, "In", "Out");
-            const animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+            const animationEnd =
+                "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
             j_obj.addClass("animated " + method).one(animationEnd, function () {
                 j_obj.off(animationEnd);
                 j_obj.css("animation-duration", "");
@@ -720,7 +775,8 @@
             });
         } else if (mode == "show") {
             j_obj.show();
-            const animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+            const animationEnd =
+                "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
             j_obj.addClass("animated " + method).one(animationEnd, function () {
                 j_obj.off(animationEnd);
                 j_obj.css("animation-duration", "");
@@ -832,7 +888,8 @@
     };
 
     $.makeSaveKey = function () {
-        var S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        var S =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         var N = 16;
         let key = Array.from(Array(N))
             .map(() => S[Math.floor(Math.random() * S.length)])
@@ -907,7 +964,10 @@
                         html = html.substring(index, html.length);
 
                         var replace_index = html.indexOf("/game/data");
-                        const tmp_html = html.substring(replace_index + "/game/data".length, html.length);
+                        const tmp_html = html.substring(
+                            replace_index + "/game/data".length,
+                            html.length
+                        );
                         html = "./data" + tmp_html;
                     }
                 }
@@ -1037,7 +1097,7 @@
             }
             const file_path = out_path + "/" + key + ".sav";
             fs.unlinkSync(file_path);
-        } catch (e) { }
+        } catch (e) {}
     };
 
     $.setStorageFile = function (key, val) {
@@ -1238,19 +1298,34 @@
         //
 
         if (TYRANO.kag.tmp.remodal_opening_effect_time !== undefined) {
-            j_anim.setStyleMap({ "animation-duration": TYRANO.kag.tmp.remodal_opening_effect_time }, "webkit");
+            j_anim.setStyleMap(
+                {
+                    "animation-duration":
+                        TYRANO.kag.tmp.remodal_opening_effect_time,
+                },
+                "webkit"
+            );
         }
 
         // オープン開始時にアニメクラスを付ける, オープン完了時に外す
         const opening_effect = TYRANO.kag.tmp.remodal_opening_effect;
         if (opening_effect && opening_effect !== "none") {
             $(document).on("opening", ".remodal", () => {
-                j_box.setStyleMap({ "animation-name": opening_effect }, "webkit");
+                j_box.setStyleMap(
+                    { "animation-name": opening_effect },
+                    "webkit"
+                );
             });
             $(document).on("opened", ".remodal", () => {
                 j_box.setStyleMap({ "animation-name": "" }, "webkit");
                 if (TYRANO.kag.tmp.remodal_closing_effect_time !== undefined) {
-                    j_anim.setStyleMap({ "animation-duration": TYRANO.kag.tmp.remodal_closing_effect_time }, "webkit");
+                    j_anim.setStyleMap(
+                        {
+                            "animation-duration":
+                                TYRANO.kag.tmp.remodal_closing_effect_time,
+                        },
+                        "webkit"
+                    );
                 }
             });
         }
@@ -1292,19 +1367,14 @@
     };
 
     $.prompt = function (str, cb) {
-
         alertify.prompt(str, function (flag, text) {
-
             if (typeof cb == "function") {
                 cb(flag, text);
             }
-
         });
-
     };
 
     $.isBase64 = function (str) {
-
         if (!str) return false;
 
         if (str.substr(0, 10) == "data:image") {
@@ -1312,9 +1382,7 @@
         } else {
             return false;
         }
-
-
-    }
+    };
 
     //オブジェクトの個数をもってきます。1
     $.countObj = function (obj) {
@@ -1355,7 +1423,9 @@
         //属性を設置
         for (var k = 0; k < array_white_attr.length; k++) {
             if (j_el.attr(array_white_attr[k])) {
-                root["attr"][array_white_attr[k]] = j_el.attr(array_white_attr[k]);
+                root["attr"][array_white_attr[k]] = j_el.attr(
+                    array_white_attr[k]
+                );
             }
         }
 
@@ -1379,7 +1449,9 @@
                 //属性を設置
                 for (var k = 0; k < array_white_attr.length; k++) {
                     if (j_node.attr(array_white_attr[k])) {
-                        obj["attr"][array_white_attr[k]] = j_node.attr(array_white_attr[k]);
+                        obj["attr"][array_white_attr[k]] = j_node.attr(
+                            array_white_attr[k]
+                        );
                     }
                 }
 
@@ -1411,7 +1483,10 @@
 
         for (var i = 0; i < array_white_attr.length; i++) {
             if (typeof root["attr"][array_white_attr[i]] != "undefined") {
-                j_root.attr(array_white_attr[i], root["attr"][array_white_attr[i]]);
+                j_root.attr(
+                    array_white_attr[i],
+                    root["attr"][array_white_attr[i]]
+                );
             }
         }
 
@@ -1420,7 +1495,10 @@
         function loop(_root, _j_obj) {
             var nodes = _root.children;
             for (var i = 0; i < nodes.length; i++) {
-                if (typeof nodes[i].tag != "undefined" && nodes[i].tag.toLowerCase() == "script") {
+                if (
+                    typeof nodes[i].tag != "undefined" &&
+                    nodes[i].tag.toLowerCase() == "script"
+                ) {
                     break;
                 }
 
@@ -1435,8 +1513,14 @@
                 j_node.attr("class", nodes[i]["class"]);
 
                 for (var k = 0; k < array_white_attr.length; k++) {
-                    if (typeof nodes[i]["attr"][array_white_attr[k]] != "undefined") {
-                        j_node.attr(array_white_attr[k], nodes[i]["attr"][array_white_attr[k]]);
+                    if (
+                        typeof nodes[i]["attr"][array_white_attr[k]] !=
+                        "undefined"
+                    ) {
+                        j_node.attr(
+                            array_white_attr[k],
+                            nodes[i]["attr"][array_white_attr[k]]
+                        );
                     }
                 }
 
@@ -1489,7 +1573,9 @@
             o.bind("touchstart", onTouchStart_);
             function onTouchStart_(e) {
                 e.preventDefault();
-                o.data("event.tap.moved", false).one("touchmove", onTouchMove_).one("touchend", onTouchEnd_);
+                o.data("event.tap.moved", false)
+                    .one("touchmove", onTouchMove_)
+                    .one("touchend", onTouchEnd_);
                 e.stopPropagation();
             }
 
@@ -1544,7 +1630,11 @@
 
     //クッキー設定
     $.setCookie = function (key, val) {
-        document.cookie = key + "=" + escape(val) + ";expires=Fri, 31-Dec-2030 23:59:59;path=/;";
+        document.cookie =
+            key +
+            "=" +
+            escape(val) +
+            ";expires=Fri, 31-Dec-2030 23:59:59;path=/;";
     };
 
     // window.setTimeoutのラッパー関数
@@ -1641,7 +1731,9 @@
 
         const edges = $.parseEdgeOptions(edge_str);
         for (const edge of edges) {
-            css_arr.push($.generateDropShadowStrokeCSSOne(edge.color, edge.width));
+            css_arr.push(
+                $.generateDropShadowStrokeCSSOne(edge.color, edge.width)
+            );
         }
 
         const css_value = css_arr.join(" ");
@@ -1662,7 +1754,9 @@
         const shadow_width = (width - 1) * 0.4;
         const css_array = [];
         if (shadow_width > 0) {
-            css_array.push(`drop-shadow(0 0 ${shadow_width.toFixed(2)}px ${color})`);
+            css_array.push(
+                `drop-shadow(0 0 ${shadow_width.toFixed(2)}px ${color})`
+            );
             for (let i = 0; i < 8; i++) {
                 css_array.push(`drop-shadow(0 0 ${color})`);
             }
@@ -1676,7 +1770,10 @@
     };
 
     if ($.getOS() === "ios" && $.getBrowser() === "safari") {
-        $.generateDropShadowStrokeCSSOne = function (color = "black", width = 1) {
+        $.generateDropShadowStrokeCSSOne = function (
+            color = "black",
+            width = 1
+        ) {
             const shadow_width = Math.max(1, parseInt(width * 0.5));
             console.warn(shadow_width);
             const css_array = [];
@@ -1707,7 +1804,9 @@
 
         const edges = $.parseEdgeOptions(edge_str);
         for (const edge of edges) {
-            css_arr.push($.generateTextShadowStrokeCSSOne(edge.color, edge.total_width));
+            css_arr.push(
+                $.generateTextShadowStrokeCSSOne(edge.color, edge.total_width)
+            );
         }
 
         const css_value = css_arr.join(",");
@@ -1820,7 +1919,8 @@
         gold: "repeating-linear-gradient(0deg, #B67B03 0.1em, #DAAF08 0.2em, #FEE9A0 0.3em, #DAAF08 0.4em, #B67B03 0.5em)",
         gold2: "linear-gradient(0deg, #b8751e 0%, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e 100%)",
         silver: "repeating-linear-gradient(0deg, #a8c7c3 0.1em, #b6c9d1 0.2em, #e7fbff 0.3em, #c7d5d6 0.4em, #a6b2b6 0.5em)",
-        silver2: "linear-gradient(0deg, #acb4b8 0%, #e6f8ff 37%, #e6f7f8 47%, #e2f3fd 50%, #eff9ff 53%, #d8e4e7 63%, #b5bbbd 100%)",
+        silver2:
+            "linear-gradient(0deg, #acb4b8 0%, #e6f8ff 37%, #e6f7f8 47%, #e2f3fd 50%, #eff9ff 53%, #d8e4e7 63%, #b5bbbd 100%)",
     };
 
     /**
@@ -1841,7 +1941,7 @@
                     "background-image": gradient,
                     "-webkit-background-clip": "text",
                     "background-clip": "text",
-                    "color": "transparent",
+                    color: "transparent",
                 })
                 .addClass("gradient-text");
         });
@@ -1859,8 +1959,15 @@
         this.each(function () {
             const j_this = $(this);
             const style = j_this.attr("style");
-            if (style && !style.includes("-webkit-background-clip") && style.includes("background-clip")) {
-                const new_style = style.replace("background-clip", "-webkit-background-clip: text; background-clip");
+            if (
+                style &&
+                !style.includes("-webkit-background-clip") &&
+                style.includes("background-clip")
+            ) {
+                const new_style = style.replace(
+                    "background-clip",
+                    "-webkit-background-clip: text; background-clip"
+                );
                 j_this.attr("style", new_style);
             }
         });
@@ -1978,7 +2085,8 @@
             } else {
                 const style_map = {};
                 prop.forEach((this_prop) => {
-                    style_map[this_prop] = this[0].style.getPropertyValue(this_prop);
+                    style_map[this_prop] =
+                        this[0].style.getPropertyValue(this_prop);
                 });
                 return style_map;
             }
@@ -2054,7 +2162,9 @@
         if (len === 0) {
             return this;
         }
-        const keyframes = TYRANO.kag.parseKeyframesForWebAnimationAPI(pm.keyframe);
+        const keyframes = TYRANO.kag.parseKeyframesForWebAnimationAPI(
+            pm.keyframe
+        );
         if (!keyframes) {
             return this;
         }
@@ -2064,7 +2174,10 @@
                 direction: pm.direction || "normal",
                 duration: parseInt(pm.time) || 1000,
                 easing: pm.easing || "linear",
-                iterations: pm.count === "infinite" ? Infinity : parseInt(pm.count) || Infinity,
+                iterations:
+                    pm.count === "infinite"
+                        ? Infinity
+                        : parseInt(pm.count) || Infinity,
                 fill: pm.mode || "forwards",
             });
             anim.onfinish = () => {
@@ -2079,7 +2192,16 @@
     /**
      * dataフォルダに入っていることが想定されるフォルダ名("scenario", "image"など)を格納した配列
      */
-    const data_folder_names = ["scenario", "image", "fgimage", "bgimage", "video", "sound", "bgm", "others"];
+    const data_folder_names = [
+        "scenario",
+        "image",
+        "fgimage",
+        "bgimage",
+        "video",
+        "sound",
+        "bgm",
+        "others",
+    ];
 
     /**
      * タグのstorageパラメータに指定された値をフルパスに直す
@@ -2117,11 +2239,10 @@
         if (folder && data_folder_names.includes(folder.split("/").shift())) {
             // dataフォルダに入っているフォルダ名が指定されている場合は自動的に"data/"を足す
             // たとえば"scenario"を"data/scenario"に変換する
+            if (folder === "scenario") {
+                folder = `scenario_${window.languagePreference}`;
+            }
             folder = `data/${folder}`;
-        }
-
-        if(storage.startsWith("scene_")){
-            storage = `${storage.split(".")[0]}.${window.languagePreference}.${storage.split(".")[1]}`
         }
 
         // / フォルダパス / ファイル名
@@ -2188,7 +2309,9 @@
             return str;
         }
         // マッチし続ける限り再帰する
-        return $.parseCamelCaseCSS(str.replace(match[0], match[0].charAt(1).toUpperCase()));
+        return $.parseCamelCaseCSS(
+            str.replace(match[0], match[0].charAt(1).toUpperCase())
+        );
     };
 
     $.findAnimTargets = function (pm = {}) {
@@ -2201,7 +2324,8 @@
         } else if (pm.layer) {
             // nameパラメータは指定されていないがlayerパラメータが指定されている場合
             // 対象レイヤのクラス名を取得 (例) "layer_free", "0_fore", "1_fore"
-            const layer_name = pm.layer == "free" ? "layer_free" : pm.layer + "_fore";
+            const layer_name =
+                pm.layer == "free" ? "layer_free" : pm.layer + "_fore";
             // レイヤ内の子要素をすべて対象に取る
             j_target = $("." + layer_name).children();
         }
@@ -2216,7 +2340,8 @@
      * @returns {number} 0以上1以下の数値
      */
     $.parseVolume = function (vol_str) {
-        const vol_int = typeof vol_str === "string" ? parseInt(vol_str) : vol_str;
+        const vol_int =
+            typeof vol_str === "string" ? parseInt(vol_str) : vol_str;
         if (isNaN(vol_int)) {
             return 1;
         }
@@ -2256,11 +2381,17 @@
             const hash = rule.selectorText.split(",");
             for (const selector of hash) {
                 if (selector.includes(":hover")) {
-                    new_selector_texts.push(selector.replace(":hover", ".hover"));
-                    new_selector_texts.push(selector.replace(":hover", ".focus"));
+                    new_selector_texts.push(
+                        selector.replace(":hover", ".hover")
+                    );
+                    new_selector_texts.push(
+                        selector.replace(":hover", ".focus")
+                    );
                 }
                 if (selector.includes(":active")) {
-                    new_selector_texts.push(selector.replace(":active", ".active"));
+                    new_selector_texts.push(
+                        selector.replace(":active", ".active")
+                    );
                 }
             }
             if (new_selector_texts.length) {
@@ -2388,7 +2519,8 @@
         easeInOutExpo: function (x, t, b, c, d) {
             if (t == 0) return b;
             if (t == d) return b + c;
-            if ((t /= d / 2) < 1) return (c / 2) * Math.pow(2, 10 * (t - 1)) + b;
+            if ((t /= d / 2) < 1)
+                return (c / 2) * Math.pow(2, 10 * (t - 1)) + b;
             return (c / 2) * (-Math.pow(2, -10 * --t) + 2) + b;
         },
         easeInCirc: function (x, t, b, c, d) {
@@ -2398,7 +2530,8 @@
             return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
         },
         easeInOutCirc: function (x, t, b, c, d) {
-            if ((t /= d / 2) < 1) return (-c / 2) * (Math.sqrt(1 - t * t) - 1) + b;
+            if ((t /= d / 2) < 1)
+                return (-c / 2) * (Math.sqrt(1 - t * t) - 1) + b;
             return (c / 2) * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
         },
         easeInElastic: function (x, t, b, c, d) {
@@ -2412,7 +2545,13 @@
                 a = c;
                 s = p / 4;
             } else s = (p / (2 * Math.PI)) * Math.asin(c / a);
-            return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin(((t * d - s) * (2 * Math.PI)) / p)) + b;
+            return (
+                -(
+                    a *
+                    Math.pow(2, 10 * (t -= 1)) *
+                    Math.sin(((t * d - s) * (2 * Math.PI)) / p)
+                ) + b
+            );
         },
         easeOutElastic: function (x, t, b, c, d) {
             var s = 1.70158;
@@ -2425,7 +2564,13 @@
                 a = c;
                 s = p / 4;
             } else s = (p / (2 * Math.PI)) * Math.asin(c / a);
-            return a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) + c + b;
+            return (
+                a *
+                    Math.pow(2, -10 * t) *
+                    Math.sin(((t * d - s) * (2 * Math.PI)) / p) +
+                c +
+                b
+            );
         },
         easeInOutElastic: function (x, t, b, c, d) {
             var s = 1.70158;
@@ -2438,8 +2583,22 @@
                 a = c;
                 s = p / 4;
             } else s = (p / (2 * Math.PI)) * Math.asin(c / a);
-            if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin(((t * d - s) * (2 * Math.PI)) / p)) + b;
-            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) * 0.5 + c + b;
+            if (t < 1)
+                return (
+                    -0.5 *
+                        (a *
+                            Math.pow(2, 10 * (t -= 1)) *
+                            Math.sin(((t * d - s) * (2 * Math.PI)) / p)) +
+                    b
+                );
+            return (
+                a *
+                    Math.pow(2, -10 * (t -= 1)) *
+                    Math.sin(((t * d - s) * (2 * Math.PI)) / p) *
+                    0.5 +
+                c +
+                b
+            );
         },
         easeInBack: function (x, t, b, c, d, s) {
             if (s == undefined) s = 1.70158;
@@ -2451,8 +2610,11 @@
         },
         easeInOutBack: function (x, t, b, c, d, s) {
             if (s == undefined) s = 1.70158;
-            if ((t /= d / 2) < 1) return (c / 2) * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
-            return (c / 2) * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
+            if ((t /= d / 2) < 1)
+                return (c / 2) * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
+            return (
+                (c / 2) * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b
+            );
         },
         easeInBounce: function (x, t, b, c, d) {
             return c - $.easing.easeOutBounce(x, d - t, 0, c, d) + b;
@@ -2469,8 +2631,13 @@
             }
         },
         easeInOutBounce: function (x, t, b, c, d) {
-            if (t < d / 2) return $.easing.easeInBounce(x, t * 2, 0, c, d) * 0.5 + b;
-            return $.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
+            if (t < d / 2)
+                return $.easing.easeInBounce(x, t * 2, 0, c, d) * 0.5 + b;
+            return (
+                $.easing.easeOutBounce(x, t * 2 - d, 0, c, d) * 0.5 +
+                c * 0.5 +
+                b
+            );
         },
     });
 
@@ -2573,9 +2740,17 @@
                         // 測りなおした
                         // 60 でなければ警告を出す
                         if (rate < 60) {
-                            console.warn(`${rate} Hz: %cLow%c refresh rate of display detected.`, "font-weight: bold", "");
+                            console.warn(
+                                `${rate} Hz: %cLow%c refresh rate of display detected.`,
+                                "font-weight: bold",
+                                ""
+                            );
                         } else if (rate > 60) {
-                            console.warn(`${rate} Hz: %cHigh%c refresh rate of display detected.`, "font-weight: bold", "");
+                            console.warn(
+                                `${rate} Hz: %cHigh%c refresh rate of display detected.`,
+                                "font-weight: bold",
+                                ""
+                            );
                         }
                         window.refreshRate = rate;
                     });

@@ -1195,13 +1195,13 @@ tyrano.plugin.kag = {
         this.stat.current_scenario = file_name;
         var file_url = "";
 
-        file_name = file_name.startsWith("scene_")
-        ? `${file_name.split(".")[0]}.${window.languagePreference}.${file_name.split(".")[1]}`
-        : file_name;
+        // file_name = file_name.startsWith("scene_")
+        // ? `${file_name.split(".")[0]}.${window.languagePreference}.${file_name.split(".")[1]}`
+        // : file_name;
 
         file_url = $.isHTTP(file_name)
             ? file_name
-            : "./data/scenario/" + file_name;
+            : `./data/scenario_${window.languagePreference}/` + file_name;
         if (that.cache_scenario[file_url]) {
             if (call_back) {
                 var result_obj = that.cache_scenario[file_url],
