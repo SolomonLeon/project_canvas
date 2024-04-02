@@ -9,6 +9,6 @@
 
 ## Todo List
 
--   [x] Multiple language support
+-   [x] i18n support
 -   [ ] Chinese translation
 -   [ ] Android Package
